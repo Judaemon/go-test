@@ -1,16 +1,18 @@
 package main
 
 import (
-    "fmt"
-    "net/http"
+	"fmt"
+	"net/http"
 )
 
-func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hello, World!")
-}
-
 func main() {
-    http.HandleFunc("/", helloWorldHandler)
-    fmt.Println("Server is running at http://localhost:8080")
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "Hello, you've requested: %s\n", r.URL.Path)
+    })
+
+    http.HandleFunc("/test", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "Hello, from test")
+    })
+
     http.ListenAndServe(":8081", nil)
 }
