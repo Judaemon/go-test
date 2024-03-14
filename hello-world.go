@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
     fmt.Println("hello world")
@@ -32,4 +35,13 @@ func main() {
 	// The := syntax is shorthand for declaring and initializing a variable
     var fruit = string("apple")
     fmt.Println(fruit)
+
+	const n = 500000000
+
+    const d = 3e20 / n
+    fmt.Println(d)
+
+    fmt.Println(int64(d))
+
+    fmt.Println(math.Sin(n))
 }
