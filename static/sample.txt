@@ -1,0 +1,4 @@
+Hello World! from sample static file.
+
+This is a sample static file.
+You can put any content you want here.
